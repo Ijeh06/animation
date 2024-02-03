@@ -1,0 +1,38 @@
+body,html{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow:visible;
+}
+
+.Zimba{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+}
+
+@property --angle {
+    syntax:'<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes Zimba{
+    0%{
+        --angle: 0deg;
+    }
+    100%{
+        --angle:360deg;
+    }
+}
+
+.character {
+    color: white;
+    font-size: 4em;
+    transform: translateY(calc(sin(var(--angle)) * 100px)) scaleZ(120);
+    animation: Zimba 4s linear infinite;
+}
